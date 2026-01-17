@@ -1,0 +1,14 @@
+services:
+  builder:
+    container_name: hyprbuild
+    image: archlinux:base-devel
+    command: 
+      # - sleep
+      # - infinity
+      - ./run.sh
+    volumes:
+      - ./:/workspace
+      - ./makepkg.conf:/etc/makepkg.conf:ro
+      - ./cache:/var/cache/pacman/
+    working_dir: /workspace
+    tty: true
